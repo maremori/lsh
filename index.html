@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>달력 오디오 플레이어</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>날짜별 오디오 재생</h1>
+  <div class="calendar">
+    <button data-audio="audio/2025-05-01.mp3">5월 1일</button>
+    <button data-audio="audio/2025-05-02.mp3">5월 2일</button>
+  </div>
+  <audio id="player" controls></audio>
+
+  <script>
+    const buttons = document.querySelectorAll('.calendar button');
+    const player = document.getElementById('player');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const src = button.getAttribute('data-audio');
+        player.src = src;
+        player.play();
+      });
+    });
+  </script>
+</body>
+</html>
